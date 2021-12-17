@@ -11,6 +11,8 @@ import PageWrapper from "../_common/pagewrapper";
  */
 function ScreenHome( props )
 {
+    /**
+     */
     return (
         <PageWrapper hdrText={"Movie App"}
                      navigation={ props.navigation }

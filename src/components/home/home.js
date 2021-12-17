@@ -12,15 +12,31 @@ import {connect} from 'react-redux'
 import * as actions from '../../rdx/actions'
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-
 /**
  */
 function Home( props )
 {
+    /**
+     */
+    useEffect(()=>{
 
-    useEffect(() => {
-    }, []);
+        LoadMovieGenre()
+            .catch()
 
+    },[])
+    /**
+     */
+    const LoadMovieGenre = async () =>
+    {
+        try {
+            const genreList = await props.RdxGenreList()
+            console.log("genreList",genreList)
+
+        }
+        catch (err) {
+            return {err}
+        }
+    }
     return (
         <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
             <Text>Home</Text>

@@ -1,0 +1,59 @@
+/**
+ * @copyright   CallACab
+ */
+import api from '../_cfg/api'
+
+async function Get (p)
+{
+    try
+    {
+        let myHeaders = new Headers();
+        myHeaders.append("Accept", "application/json");
+
+        const requestOptions = {
+            method: 'GET',
+            headers: myHeaders
+        };
+        console.log('[api.url , p.type , \'?api_key=\' , api.apiKey].join(\'/\')',[api.url , p.type , '?api_key=' , api.apiKey].join('/'))
+
+        const response = await fetch( [api.url , p.type , '?api_key=' , api.apiKey].join(''), requestOptions)
+
+        let resp = await response.json();
+
+        return resp
+    }
+    catch (err)
+    {
+       return {err}
+    }
+}//Get
+
+async function Post (p)
+{
+    try
+    {
+        let myHeaders = new Headers();
+        myHeaders.append("Accept", "application/json");
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: p.data,
+        };
+
+        const response = await fetch([api.api_url,p.type].join('/'), requestOptions)
+
+        let json = await response.json();
+
+        console.log("result", json)
+
+        return {resp:{...json},msg:"ok"}
+
+    }
+    catch (e)
+    {
+        return {err}
+    }
+}//Post
+
+export {Get,Post}

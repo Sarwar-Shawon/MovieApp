@@ -5,7 +5,8 @@
 import {combineReducers} from 'redux'
 import {persistReducer} from 'redux-persist'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-
+import Genre from './Genre'
+import Movie from './Movie'
 /**
  */
 const persist_cfg = {
@@ -19,7 +20,8 @@ const persist_cfg = {
 /**
  */
 const rdx_reduers = combineReducers( {
-
+        __genre: Genre,
+        __movie: Movie
 } )
 
 /**
