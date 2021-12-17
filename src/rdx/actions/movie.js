@@ -3,32 +3,22 @@
  */
 import {Get} from "../../handler";
 
-export const RdxGenreList = () => {
+export const RdxMovieListByGenre = (p) => {
 
     return async (d, gs) =>
     {
         try
         {
-            const data = await Get({type: 'genre/movie/list'})
-
-            d(StoreGenre(data))
-
-            return data
+            const data = await Get({type: 'discover/movie', sort_by: `&with_genres=${p.id}` })
+            console.log('data', data)
+            return data && data.results.length ? data.results.splice(0,5) : []
         }
         catch( err )
         {
-            console.warn( 'actions/driverCom: RdxGenreList: err: ', err )
+            console.warn( 'actions/driverCom: RdxMovieList: err: ', err )
 
             return Promise.reject( err )
         }
     }
 
-}
-
-const StoreGenre = (data) =>{
-
-    return {
-        type: 'store:genre',
-        payload: data
-    }
 }

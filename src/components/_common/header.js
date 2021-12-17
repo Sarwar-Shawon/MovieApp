@@ -11,8 +11,9 @@ import {
     ActivityIndicator,
     StatusBar, SafeAreaView,
     StyleSheet,
-    Platform,
+
 } from 'react-native'
+import ui from '../../_cfg/ui'
 
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 
@@ -42,13 +43,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: "#ddd"
+        backgroundColor: ui.color.primary
     },
     title: {
         letterSpacing: 1,
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#000',
+        color: ui.text.light,
 
     },
     headerStyle: {

@@ -7,7 +7,7 @@ export default (state = {
 
     switch (action.type) {
 
-        case '': 
+        case '':
 
         default:
             return state

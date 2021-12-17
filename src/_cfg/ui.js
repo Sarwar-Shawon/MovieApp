@@ -1,11 +1,11 @@
 /**
- * @copyright   GlobalOne2015
+ * @copyright Sarwar Hoshen
  */
 
 export default {
     color: {
-        primary: "#00FFFF",
-        primary_light: "#DDFFFF",
+        primary: "#333333",
+        primary_light: "rgb(80,80,80)",
         status_bar_white: "#ffffff",
         status_bar_black: "#000000",
         border: "#e6e6e6",
@@ -18,7 +18,7 @@ export default {
     },
     text: {
         dark: "#262626",
-        light: "#999999",
+        light: "#f4f4f4",
         primary: "#00FFFF",
     }
 }

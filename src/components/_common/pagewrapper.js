@@ -12,6 +12,7 @@ import {
 
 import {connect} from 'react-redux'
 import * as actions from '../../rdx/actions'
+import ui from '../../_cfg/ui'
 
 import Header from './header'
 import Footer from './footer'
@@ -20,7 +21,7 @@ function PageWrapper(props)
 {
 
     return (
-        <SafeAreaView style={{flex: 1}}>
+        <SafeAreaView style={{flex: 1,backgroundColor:ui.color.primary}}>
             {
                 props.showHdr &&
                 <Header {...props} />

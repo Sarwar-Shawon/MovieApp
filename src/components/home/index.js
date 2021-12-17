@@ -37,7 +37,10 @@ const StackHome = ( props ) =>
 {
     return (
         <Stack.Navigator initialRouteName="Home" headerMode="none">
-            <Stack.Screen name='Home' component={ScreenHome}/>
+            <Stack.Screen name='Home'
+                          component={ScreenHome}
+
+            />
         </Stack.Navigator>
     )
 }

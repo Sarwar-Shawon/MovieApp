@@ -2,7 +2,7 @@
  * @copyright Sarwar Hoshen
  */
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer,DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import StackHome from '../components/home'
@@ -19,12 +19,20 @@ const StackApp = ( props ) =>
         </Stack.Navigator>
     )
 }
+const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+        ...DefaultTheme.colors,
+        primary: '#333333',
+    },
+    dark: false
+};
 /**
  */
 export default function AppNavigator()
 {
     return (
-        <NavigationContainer>
+        <NavigationContainer theme={MyTheme}>
             <StackApp />
         </NavigationContainer>
     )
