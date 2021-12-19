@@ -10,7 +10,7 @@ export const RdxMovieListByGenre = (p) => {
         try
         {
             const data = await Get({type: 'discover/movie', sort_by: `&with_genres=${p.id}` })
-            console.log('data', data)
+            // console.log('data', data)
             return data && data.results.length ? data.results.splice(0,5) : []
         }
         catch( err )

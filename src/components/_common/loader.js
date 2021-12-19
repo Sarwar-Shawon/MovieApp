@@ -37,7 +37,7 @@ function PlaceholderLoader( props )
             </Placeholder>
         </View>
     )
-}   // AppDrawer
+}   // PlaceholderLoader
 
 
 /**

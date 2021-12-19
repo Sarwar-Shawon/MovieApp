@@ -9,23 +9,26 @@ import PageWrapper from "../_common/pagewrapper";
 
 /**
  */
-function ScreenHome( props )
+function ScreenGenre( props )
 {
+    console.log("props111", props)
+    const {params} = props.route
+
+    console.log("params111",params)
     /**
      */
     return (
-        <PageWrapper hdrText={"Movie App"}
+        <PageWrapper hdrText={props.hdrText}
                      navigation={ props.navigation }
-                     active={"home"}
+                     active={"genre"}
                      showHdr={ true }
                      showFtr={ true }
 
         >
-            <Home navigation={ props.navigation } {...props}/>
-
+            <Home {...props}/>
         </PageWrapper>
     )
-}   // ScreenHome
+}   // ScreenGenre
 
 /**
  */
@@ -33,13 +36,12 @@ const Stack = createStackNavigator();
 
 /**
  */
-const StackHome = () =>
+const StackGenre = () =>
 {
     return (
-        <Stack.Navigator initialRouteName="Home" headerMode="none">
-            <Stack.Screen name='Home'
-                          component={ScreenHome}
-
+        <Stack.Navigator initialRouteName="Genre" headerMode="none">
+            <Stack.Screen name='Genre'
+                          component={ScreenGenre}
             />
         </Stack.Navigator>
     )
@@ -47,6 +49,6 @@ const StackHome = () =>
 
 /**
  */
-export default StackHome
+export default StackGenre
 
 

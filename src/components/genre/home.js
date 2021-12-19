@@ -12,36 +12,38 @@ import {connect} from 'react-redux'
 import * as actions from '../../rdx/actions'
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import {PlaceholderLoader} from '../_common/loader'
-import GenreList from './genreList'
+import MovieCard from '../_views/movieCard'
+
 
 /**
  */
 function Home( props )
 {
-    const [isLoading,setLoading] = useState(false)
-    const [genreList,setGenreList] = useState([])
+    const [isLoading,setLoading] = useState(true)
+    const [movieList,setMovieList] = useState([])
+
+    console.log("props222", props)
+    const {params} = props.route
+
+    console.log("params222",params)
     /**
      */
     useEffect(()=>{
 
-        LoadMovieGenre()
+        LoadTopMovies()
             .catch()
 
     },[])
     /**
      */
-    const LoadMovieGenre = async () =>
+    const LoadTopMovies = async () =>
     {
         try {
 
-            console.log("props.__genre",props.__genre)
-
-            if(!props.__genre.genreList.length)
-                setLoading(true)
-            const genreList = await props.RdxGenreList()
+            // const genreList = await props.RdxGenreList()
             // console.log("genreList",genreList)
-            setGenreList(genreList.genres || [] )
-            setLoading(false)
+            // setGenreList(genreList.genres || [] )
+            // setLoading(false)
         }
         catch (err) {
             setLoading(false)
@@ -54,25 +56,26 @@ function Home( props )
     {
         return (
 
-           <GenreList item={item}
-                      {...props}
-           />
+            <MovieCard item={item}/>
         )
     }
     /**
      */
     return (
         <View style={{flex:1}}>
-            {
+            <Text>Genre Page</Text>
+            {/*{
                 isLoading &&
                 <PlaceholderLoader style={{margin: 20, padding: 20}}/>
             }
             <FlatList
-                data={props.__genre.genreList}
+                contentContainerStyle={{alignSelf: 'flex-start'}}
+                data={movieList}
                 keyExtractor={(item) => item.id}
                 renderItem={RenderItem}
+                numColumns={2}
                 // ItemSeparatorComponent={()=><View style={{height:1.5,backgroundColor: '#ddd',width:'100%'}}/>}
-            />
+            />*/}
 
         </View>
     )

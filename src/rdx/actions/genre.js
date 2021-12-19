@@ -11,7 +11,7 @@ export const RdxGenreList = () => {
         {
             const data = await Get({type: 'genre/movie/list'})
 
-            d(StoreGenre(data))
+            d(StoreGenre(data.genres || []))
 
             return data
         }
