@@ -14,15 +14,13 @@ import {
 } from 'react-native'
 
 import FA5Icon from "react-native-vector-icons/FontAwesome5"
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import ui from '../../_cfg/ui'
-// const ftrData = ['Home', 'Movie','Favourite']
 /**
  */
-const Footer = () =>
+const Footer = (props) =>
 {
-    const [type,setType] = useState('home')
+    const [selected,SetSelected] = useState('home')
 
     /**
 	 */
@@ -30,37 +28,24 @@ const Footer = () =>
         <View style={styles.container}>
             <View style={{flex: 1}}>
                 <TouchableOpacity style={styles.item}
-                                  onPress={() => {}}
+                                  onPress={() => {
+                                      SetSelected('home')
+                                      return props.navigation.navigate('AppHome')
+                                  }}
                 >
                     <View>
-                        <FA5Icon name="home" size={24} color={ui.color.lightBackground}/>
+                        <FA5Icon name="home" size={24} color={selected ==='home'? '#87ceeb': ui.color.lightBackground}/>
                     </View>
                 </TouchableOpacity>
             </View>
             <View style={{flex: 1}}>
                 <TouchableOpacity style={styles.item}
-                                  onPress={() => {}}
+                                  onPress={() => {
+                                      SetSelected('fav')
+                                  }}
                 >
                     <View>
-                        <FA5Icon name="home" size={24} color={ui.color.lightBackground}/>
-                    </View>
-                </TouchableOpacity>
-            </View>
-            <View style={{flex: 1}}>
-                <TouchableOpacity style={styles.item}
-                                  onPress={() => {}}
-                >
-                    <View>
-                        <FA5Icon name="home" size={24} color={ui.color.lightBackground}/>
-                    </View>
-                </TouchableOpacity>
-            </View>
-            <View style={{flex: 1}}>
-                <TouchableOpacity style={styles.item}
-                                  onPress={() => {}}
-                >
-                    <View>
-                        <FA5Icon name="home" size={24} color={ui.color.lightBackground}/>
+                        <FA5Icon name="home" size={24} color={selected ==='fav'? '#87ceeb': ui.color.lightBackground}/>
                     </View>
                 </TouchableOpacity>
             </View>

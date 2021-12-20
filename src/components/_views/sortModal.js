@@ -14,6 +14,7 @@ import {
 import MCIcon from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import ui from '../../_cfg/ui'
 import Modal from "react-native-modal";
+import {ShowAlert} from '../_views/ShowAlert'
 //
 const SortModal = (props) => {
 
@@ -23,8 +24,6 @@ const SortModal = (props) => {
     ]
     const deviceHeight = Dimensions.get("window").height
     const [isModal, IsModal] = useState(false);
-    const [query, SetQuery] = useState('');
-    const [option, SetOption] = useState('')
     const [popularity, SetPopularity] = useState('desc')
     const [avgRating, SetAvgRating] = useState('')
     const [countRating, SetcountRating] = useState('')
@@ -38,7 +37,19 @@ const SortModal = (props) => {
             let query = [popularity ? 'popularity.'+popularity+',' : '',avgRating ? 'vote_average.'+avgRating+',' : '' , countRating ? 'vote_count.'+countRating+',' : '' ].join('')
             query = query.substring(0, query.length - 1)
             console.log("query",query)
-            props.OnSortChange(query)
+            if(query){
+                props.OnSortChange(query)
+                IsModal(false)
+
+            }
+            else
+            {
+                ShowAlert({
+                    title: 'Error', msg: `Please select an option`
+                })
+            }
+
+
         }
         catch (err) {
             return {err}
