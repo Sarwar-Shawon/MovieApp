@@ -4,28 +4,25 @@
 
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack'
-import Home from './home'
+import GenreHome from './home'
 import PageWrapper from "../_common/pagewrapper";
 
 /**
  */
 function ScreenGenre( props )
 {
-    console.log("props111", props)
     const {params} = props.route
-
-    console.log("params111",params)
     /**
      */
     return (
-        <PageWrapper hdrText={props.hdrText}
+        <PageWrapper hdrText={params.hdrText}
                      navigation={ props.navigation }
                      active={"genre"}
                      showHdr={ true }
                      showFtr={ true }
 
         >
-            <Home {...props}/>
+            <GenreHome navigation={ props.navigation } {...props}/>
         </PageWrapper>
     )
 }   // ScreenGenre
@@ -33,14 +30,13 @@ function ScreenGenre( props )
 /**
  */
 const Stack = createStackNavigator();
-
 /**
  */
-const StackGenre = () =>
+const StackGenre = (props) =>
 {
     return (
-        <Stack.Navigator initialRouteName="Genre" headerMode="none">
-            <Stack.Screen name='Genre'
+        <Stack.Navigator initialRouteName="GenreHome" headerMode="none">
+            <Stack.Screen name='GenreHome'
                           component={ScreenGenre}
             />
         </Stack.Navigator>

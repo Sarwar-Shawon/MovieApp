@@ -22,3 +22,22 @@ export const RdxMovieListByGenre = (p) => {
     }
 
 }
+export const RdxMovieListSort = (p) => {
+
+    return async (d, gs) =>
+    {
+        try
+        {
+            const data = await Get({type: 'discover/movie', sort_by: p.sort_by || `&sort_by=popularity.desc&with_genres=${p.id}` })
+
+            return data && data.results.length ? data.results.splice(0,10) : []
+        }
+        catch( err )
+        {
+            console.warn( 'actions/driverCom: RdxMovieList: err: ', err )
+
+            return Promise.reject( err )
+        }
+    }
+
+}

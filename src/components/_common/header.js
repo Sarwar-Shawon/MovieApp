@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: ui.color.primary
+        backgroundColor: ui.color.primary,
     },
     title: {
         letterSpacing: 1,

@@ -16,7 +16,7 @@ import ui from '../../_cfg/ui'
 function MovieCard( props )
 {
     return (
-        <View style={styles.item}>
+        <View style={[props.style, styles.item]}>
             <Image
                 source={{
                     uri: props.item.poster_path ? [api.imgPath,props.item.poster_path].join('') : '',
@@ -49,13 +49,15 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
 
         elevation: 5,
+        marginRight: 20
 
     },
     itemPhoto: {
         width: 140,
-        height: 180,
+        height: 200,
         borderRadius: 5,
-        marginRight: 20
+        resizeMode: 'contain',
+        // marginRight: 20
     },
     itemText: {
         color: ui.text.light,

@@ -14,7 +14,7 @@ async function Get (p)
             method: 'GET',
             headers: myHeaders
         };
-        console.log('[api.url , p.type , \'?api_key=\' , api.apiKey].join(\'/\')',[api.url , p.type , '?api_key=' , api.apiKey].join(''))
+        console.log('api:::',[api.url , p.type , '?api_key=' , api.apiKey, p.sort_by || ''].join(''))
 
         const response = await fetch( [api.url , p.type , '?api_key=' , api.apiKey, p.sort_by || ''].join(''), requestOptions)
 
@@ -41,7 +41,7 @@ async function Post (p)
             body: p.data,
         };
 
-        const response = await fetch([api.api_url,p.type].join('/'), requestOptions)
+        const response = await fetch([api.url,p.type].join('/'), requestOptions)
 
         let json = await response.json();
 
@@ -50,7 +50,7 @@ async function Post (p)
         return {resp:{...json},msg:"ok"}
 
     }
-    catch (e)
+    catch (err)
     {
         return {err}
     }

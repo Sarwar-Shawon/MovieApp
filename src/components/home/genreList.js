@@ -48,7 +48,8 @@ function GenreList(props )
      */
     const ListItem = ({ item }) => {
         return (
-            <MovieCard item={item}/>
+            <MovieCard item={item}
+            />
         );
     };
     /**
@@ -62,7 +63,13 @@ function GenreList(props )
                     <Text style={styles.sectionHeader}>{props.item.name}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity stlye={{flex:1}}
-                                  onPress={() => props.navigation.navigate('AppGenre',{hdrText: props.item.name , item:props.item})}
+                                  onPress={() => props.navigation.navigate('AppGenre',{
+                                      screen: 'GenreHome',
+                                      params: {
+                                          hdrText: props.item.name ,
+                                          item:props.item
+                                      },
+                                  })}
                 >
                     <Text style={[styles.sectionHeader,{fontSize:12, marginTop:5}]}>{"Top 10"}</Text>
                 </TouchableOpacity>
@@ -84,7 +91,7 @@ function GenreList(props )
 
         </View>
     )
-}   // Genre
+}   // GenreList
 
 const styles = StyleSheet.create({
     container: {
@@ -121,7 +128,7 @@ const styles = StyleSheet.create({
         marginRight: 20
     },
     itemText: {
-        color: ui.color.primary_light,
+        color: ui.text.light,
         marginTop: 5,
     },
 });
