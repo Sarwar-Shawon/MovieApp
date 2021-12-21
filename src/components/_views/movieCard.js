@@ -10,12 +10,35 @@ import {
 
 import api from '../../_cfg/api'
 import ui from '../../_cfg/ui'
-import MCIcon from "react-native-vector-icons/dist/MaterialCommunityIcons";
+import FA5Icon from "react-native-vector-icons/FontAwesome5"
+import {useDispatch, useSelector} from "react-redux";
+import {RdxAddToWatchList, RdxRemoveFromWatchList} from "../../rdx/actions";
 
 /**
  */
 function MovieCard( props )
 {
+    const watchListObj = useSelector(state => state.__movie.watchListObj)
+    const [watchStatus,setWatchStatus] = useState(watchListObj[props.item.id] ? true : false)
+    const [changeState,setChangeState] = useState(null)
+    const dispatch = useDispatch()
+
+    const WatchListUpd = () =>
+    {
+        setWatchStatus(!watchStatus)
+        setChangeState(true)
+    }
+
+    useEffect(()=>{
+        if(changeState)
+        {
+            if(watchStatus)
+                dispatch(RdxAddToWatchList(props.item)).catch()
+            else
+                dispatch(RdxRemoveFromWatchList(props.item)).catch()
+        }
+    },[changeState])
+
     return (
         <View style={[styles.item, props.style]}>
             <View>
@@ -29,11 +52,14 @@ function MovieCard( props )
                 <View style={[styles.rating,styles.shadow]}>
                     <Text style={{color: ui.text.light}}>{props.item.vote_average}</Text>
                 </View>
-                <View style={[styles.fav,styles.shadow]}>
-                    <Text style={{color: ui.text.light}}>
-                        <MCIcon name={'plus'} size={20} color={ui.text.light}/>
-                    </Text>
+                <View>
+                    <TouchableOpacity style={[styles.fav,styles.shadow,{backgroundColor: watchStatus ? '#50C77B' : ui.color.primary_light }]}
+                                      onPress={()=> WatchListUpd()  }
+                    >
+                        <FA5Icon name={watchStatus? 'check':'plus'} size={20} color={!watchStatus ?'#50C77B': ui.text.dark}/>
+                    </TouchableOpacity>
                 </View>
+
             </View>
 
             <View style={{

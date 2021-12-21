@@ -21,7 +21,8 @@ const persist_cfg = {
     key: 'root',
     storage: AsyncStorage,
     whitelist: [
-        '__genre'
+        '__genre',
+        '__movie'
     ],
 }
 /**

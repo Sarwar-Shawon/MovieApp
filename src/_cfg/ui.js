@@ -9,7 +9,7 @@ export default {
         status_bar_white: "#ffffff",
         status_bar_black: "#000000",
         border: "#e6e6e6",
-        border_primary: "#00FFFF",
+        primary_pest: "#87ceeb",
         lightBackground: "#fafafa",
         black:"#000000"
     },

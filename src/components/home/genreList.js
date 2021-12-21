@@ -8,18 +8,19 @@ import {
     View, Text, FlatList, Image, StyleSheet, TouchableOpacity
 } from 'react-native';
 
-import {connect} from 'react-redux'
-import * as actions from '../../rdx/actions'
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
-import api from '../../_cfg/api'
 import ui from '../../_cfg/ui'
 import MovieCard from '../_views/movieCard'
 import {PlaceholderLoader} from "../_common/loader"
+import FA5Icon from "react-native-vector-icons/FontAwesome5";
+import {useDispatch, useSelector} from "react-redux";
+import {RdxMovieListByGenre} from "../../rdx/actions";
 
 /**
  */
 function GenreList(props )
 {
+    const dispatch = useDispatch()
+    const ts = useSelector(state => state.__movie.ts)
     const [isLoading,setLoading] = useState(true)
     const [movieList,setMovieList] = useState([])
     /**
@@ -32,14 +33,15 @@ function GenreList(props )
      */
     const LoadMovieList = async () =>
     {
-        try {
-
-            const resp = await props.RdxMovieListByGenre({id:props.item.id})
-            // console.log("movieList",resp)
+        try
+        {
+            const resp = await dispatch(RdxMovieListByGenre({id:props.item.id}))
+            console.log("movieList",resp)
             setMovieList(resp )
             setLoading(false)
         }
-        catch (err) {
+        catch (err)
+        {
             setLoading(false)
             return {err}
         }
@@ -48,8 +50,7 @@ function GenreList(props )
      */
     const ListItem = ({ item }) => {
         return (
-            <MovieCard item={item}
-            />
+            <MovieCard item={item}/>
         );
     };
     /**
@@ -73,7 +74,15 @@ function GenreList(props )
                                       },
                                   })}
                 >
-                    <Text style={[styles.sectionHeader,{fontSize:14,color: "#87ceeb"}]}>{"Show Top 10 ..."}</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style={[styles.sectionHeader,{fontSize:14,color: ui.color.primary_pest}]}>{"Show Top 10"}</Text>
+                        <FA5Icon name="caret-right"
+                                 style={{marginTop:5, right: 5}}
+                                 size={26}
+                                 color={ui.color.lightBackground}/>
+
+                    </View>
+
                 </TouchableOpacity>
             </View>
 
@@ -87,6 +96,7 @@ function GenreList(props )
                     data={movieList}
                     renderItem={({ item }) => <ListItem item={item} />}
                     showsHorizontalScrollIndicator={false}
+                    extraData={ts}
                 />
 
             </View>

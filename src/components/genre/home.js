@@ -8,12 +8,13 @@ import {
     View,Text,FlatList
 } from 'react-native';
 
-import {connect} from 'react-redux'
-import * as actions from '../../rdx/actions'
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import {connect, useDispatch} from 'react-redux'
 import {PlaceholderLoader} from '../_common/loader'
 import MovieCard from '../_views/movieCard'
 import SortModal from '../_views/sortModal'
+import {RdxMovieListSort} from "../../rdx/actions";
+
+
 
 /**
  */
@@ -22,6 +23,7 @@ function GenreHome( props )
     const [isLoading,setLoading] = useState(true)
     const [movieList,setMovieList] = useState([])
     const {params} = props.route
+    const dispatch = useDispatch()
     /**
      */
     useEffect(()=>{
@@ -36,7 +38,7 @@ function GenreHome( props )
     {
         try {
             setLoading(true)
-            const resp = await props.RdxMovieListSort(p)
+            const resp = await dispatch(RdxMovieListSort(p))
             console.log("genre/home: LoadTopMovies: topMovieList: resp: ",resp)
             setMovieList(resp)
             setLoading(false)
@@ -49,8 +51,34 @@ function GenreHome( props )
     }
     /**
      */
+    const AddToWatchList =(movie) =>
+    {
+        try
+        {
+            props.RdxAddToWatchList(movie)
+        }
+        catch (err) {
+            return {err}
+        }
+    }
+    /**
+     */
+    const RemoveFromWatchList =(movie) =>
+    {
+        try
+        {
+            props.RdxRemoveFromWatchList(movie)
+        }
+        catch (err) {
+            return {err}
+        }
+    }
+    /**
+     */
     const RenderItem = ({item}) =>
     {
+        // const watchStatus = props.__movie.watchListObj[item.id] ? true : false
+
         return (
 
             <MovieCard item={item}
@@ -59,6 +87,11 @@ function GenreHome( props )
                            margin: 10,
                            padding: 10
                        }}
+
+                       // AddToWatchList={AddToWatchList}
+                       // RemoveFromWatchList={RemoveFromWatchList}
+                       // watchStatus={watchStatus}
+
             />
         )
     }
@@ -99,6 +132,7 @@ function GenreHome( props )
                     data={movieList}
                     keyExtractor={(item) => item.id}
                     renderItem={RenderItem}
+                    extraData={movieList}
                     // numColumns={2}
                 />
             </View>
@@ -107,14 +141,14 @@ function GenreHome( props )
         </View>
     )
 }   // Home
-
+export default GenreHome
 /**
  */
-const mapStateToProps = (state) => {
-    return state;
-}; //
-/**
- */
-export default connect(mapStateToProps, actions)(GenreHome);
+// const mapStateToProps = (state) => {
+//     return state;
+// }; //
+// /**
+//  */
+// export default connect(mapStateToProps, actions)(GenreHome);
 
 
