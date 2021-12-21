@@ -37,11 +37,12 @@ function GenreHome( props )
         try {
             setLoading(true)
             const resp = await props.RdxMovieListSort(p)
-            console.log("topMovieList",resp)
+            console.log("genre/home: LoadTopMovies: topMovieList: resp: ",resp)
             setMovieList(resp)
             setLoading(false)
         }
         catch (err) {
+            console.warn("genre/home: LoadTopMovies: topMovieList: err: ",err)
             setLoading(false)
             return {err}
         }
@@ -53,7 +54,11 @@ function GenreHome( props )
         return (
 
             <MovieCard item={item}
-                       style={{margin: 30,marginBottom: 10}}
+                       style={{
+                           flex: 1,
+                           margin: 10,
+                           padding: 10
+                       }}
             />
         )
     }
@@ -86,13 +91,15 @@ function GenreHome( props )
             }
             <View style={{flex:1}}>
                 <FlatList
-                    // columnWrapperStyle={{justifyContent: 'space-between'}}
-                    contentContainerStyle={{justifyContent:'space-between',}}
+                    contentContainerStyle={{
+                        justifyContent: 'center',
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                    }}
                     data={movieList}
                     keyExtractor={(item) => item.id}
                     renderItem={RenderItem}
-                    numColumns={2}
-                    // ItemSeparatorComponent={()=><View style={{height:1.5,backgroundColor: '#ddd',width:'100%'}}/>}
+                    // numColumns={2}
                 />
             </View>
 

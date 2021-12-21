@@ -45,7 +45,7 @@ const Footer = (props) =>
                                   }}
                 >
                     <View>
-                        <FA5Icon name="home" size={24} color={selected ==='fav'? '#87ceeb': ui.color.lightBackground}/>
+                        <FA5Icon name="heart" size={24} color={selected ==='fav'? '#87ceeb': ui.color.lightBackground}/>
                     </View>
                 </TouchableOpacity>
             </View>

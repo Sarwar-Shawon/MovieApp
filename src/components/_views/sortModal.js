@@ -10,7 +10,6 @@ import {
     StyleSheet,
     FlatList
 } from 'react-native';
-// import RnDatePicker from 'react-native-date-picker';
 import MCIcon from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import ui from '../../_cfg/ui'
 import Modal from "react-native-modal";

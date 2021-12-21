@@ -17,7 +17,7 @@ import MCIcon from "react-native-vector-icons/dist/MaterialCommunityIcons";
 function MovieCard( props )
 {
     return (
-        <View style={[props.style, styles.item]}>
+        <View style={[styles.item, props.style]}>
             <View>
                 <Image
                     source={{
@@ -36,12 +36,17 @@ function MovieCard( props )
                 </View>
             </View>
 
-            <Text style={styles.itemText}
-                  numberOfLines={2}
-                  adjustsFontSizeToFit
-            >
-                {props.item.title}
-            </Text>
+            <View style={{
+                justifyContent: 'center',
+                alignItems: 'center'}}>
+                <Text style={styles.itemText}
+                      numberOfLines={2}
+                      adjustsFontSizeToFit
+                >
+                    {props.item.title}
+                </Text>
+            </View>
+
 
         </View>
     )
@@ -61,8 +66,9 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
 
         elevation: 5,
-        marginRight: 20
-
+        padding: 2,
+        margin: 2,
+        flex:1
     },
     itemPhoto: {
         width: 140,
@@ -73,15 +79,14 @@ const styles = StyleSheet.create({
     },
     itemText: {
         color: ui.text.light,
-        marginTop: 5,
+        marginTop: 8,
         width: 120,
         textAlign:'center',
         fontWeight: 'bold'
-
     },
     rating:{
         position:'absolute',
-        margin: 10,
+        margin: 2,
         height: 30,
         width: 30,
         borderRadius: 20,

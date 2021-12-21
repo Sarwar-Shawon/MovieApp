@@ -56,12 +56,14 @@ function GenreList(props )
      */
     return (
         <View style={styles.container}>
-            <View style={{flexDirection: 'row'}}>
-                <TouchableOpacity stlye={{flex:1}}
+            <View style={{flex:1,flexDirection: 'row', justifyContent:'space-between'}}>
+
+                <TouchableOpacity stlye={{flex:1, backgroundColor: 'red'}}
                                   onPress={() => {}}
                 >
                     <Text style={styles.sectionHeader}>{props.item.name}</Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity stlye={{flex:1}}
                                   onPress={() => props.navigation.navigate('AppGenre',{
                                       screen: 'GenreHome',
@@ -71,11 +73,11 @@ function GenreList(props )
                                       },
                                   })}
                 >
-                    <Text style={[styles.sectionHeader,{fontSize:12, marginTop:5}]}>{"Top 10"}</Text>
+                    <Text style={[styles.sectionHeader,{fontSize:14,color: "#87ceeb"}]}>{"Show Top 10 ..."}</Text>
                 </TouchableOpacity>
             </View>
 
-            <View style={{flex:1,marginHorizontal: 10}}>
+            <View style={{flex:1}}>
                 {
                     isLoading &&
                     <PlaceholderLoader style={{margin: 20, padding: 20}}/>
@@ -96,7 +98,7 @@ function GenreList(props )
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: ui.color.primary,
+        // backgroundColor: ui.color.primary,
     },
     sectionHeader: {
         fontWeight: '800',
