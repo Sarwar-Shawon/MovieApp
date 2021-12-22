@@ -8,17 +8,15 @@ import {
     View,Text,FlatList
 } from 'react-native';
 
-import {connect, useDispatch} from 'react-redux'
+import { useDispatch} from 'react-redux'
 import {PlaceholderLoader} from '../_common/loader'
 import MovieCard from '../_views/movieCard'
 import SortModal from '../_views/sortModal'
 import {RdxMovieListSort} from "../../rdx/actions";
 
-
-
 /**
  */
-function GenreHome( props )
+function GenreMovie( props )
 {
     const [isLoading,setLoading] = useState(true)
     const [movieList,setMovieList] = useState([])
@@ -51,34 +49,8 @@ function GenreHome( props )
     }
     /**
      */
-    const AddToWatchList =(movie) =>
-    {
-        try
-        {
-            props.RdxAddToWatchList(movie)
-        }
-        catch (err) {
-            return {err}
-        }
-    }
-    /**
-     */
-    const RemoveFromWatchList =(movie) =>
-    {
-        try
-        {
-            props.RdxRemoveFromWatchList(movie)
-        }
-        catch (err) {
-            return {err}
-        }
-    }
-    /**
-     */
     const RenderItem = ({item}) =>
     {
-        // const watchStatus = props.__movie.watchListObj[item.id] ? true : false
-
         return (
 
             <MovieCard item={item}
@@ -88,9 +60,6 @@ function GenreHome( props )
                            padding: 10
                        }}
 
-                       // AddToWatchList={AddToWatchList}
-                       // RemoveFromWatchList={RemoveFromWatchList}
-                       // watchStatus={watchStatus}
 
             />
         )
@@ -125,23 +94,24 @@ function GenreHome( props )
             <View style={{flex:1}}>
                 <FlatList
                     contentContainerStyle={{
-                        justifyContent: 'center',
-                        flexDirection: 'row',
-                        flexWrap: 'wrap',
+                        justifyContent: 'space-between',
+                        // flexDirection: 'row',
+                        // flexWrap: 'wrap',
+
                     }}
                     data={movieList}
                     keyExtractor={(item) => item.id}
                     renderItem={RenderItem}
                     extraData={movieList}
-                    // numColumns={2}
+                    numColumns={2}
                 />
             </View>
 
 
         </View>
     )
-}   // Home
-export default GenreHome
+}   // GenreHome
+export default GenreMovie
 /**
  */
 // const mapStateToProps = (state) => {

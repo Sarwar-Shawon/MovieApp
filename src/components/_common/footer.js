@@ -2,7 +2,7 @@
  *  @copyright Sarwar Hoshen
  */
 
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import {
     View, Text,
@@ -22,6 +22,8 @@ const Footer = (props) =>
 {
     const [selected,SetSelected] = useState('home')
 
+    console.log("selected",selected)
+
     /**
 	 */
     return (
@@ -31,6 +33,7 @@ const Footer = (props) =>
                                   onPress={() => {
                                       SetSelected('home')
                                       return props.navigation.navigate('AppHome')
+
                                   }}
                 >
                     <View>
@@ -42,6 +45,7 @@ const Footer = (props) =>
                 <TouchableOpacity style={styles.item}
                                   onPress={() => {
                                       SetSelected('fav')
+                                      return props.navigation.navigate('AppWatchList')
                                   }}
                 >
                     <View>

@@ -110,7 +110,10 @@ def enableProguardInReleaseBuilds = false
  * this variant is about 6MiB larger per architecture than default.
  */
 def jscFlavor = 'org.webkit:android-jsc:+'
-
+project.ext.vectoricons = [
+        iconFontNames: [ 'MaterialIcons.ttf', 'FontAwesome5_Solid.ttf','FontAwesome5_Regular.ttf','FontAwesome5_Brands.ttf','FontAwesome.ttf','MaterialCommunityIcons.ttf','EvilIcons.ttf' ,'Ionicons.ttf'] // Name of the font files you want to copy
+]
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 /**
  * Whether to enable the Hermes VM.
  *

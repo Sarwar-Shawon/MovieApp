@@ -29,10 +29,7 @@ function PageWrapper(props)
             <View style={{flex: 1}}>
                 { props.children }
             </View>
-            {
-                props.showFtr &&
-                <Footer {...props}/>
-            }
+
         </SafeAreaView>
     )
 } //func PageWrapper

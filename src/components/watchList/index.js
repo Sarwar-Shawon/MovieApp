@@ -4,40 +4,42 @@
 
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack'
-import GenreHome from './home'
+import WatchList from './home'
 import PageWrapper from "../_common/pagewrapper";
 
 /**
  */
-function ScreenGenre( props )
+function ScreenWatchList( props )
 {
-    const {params} = props.route
     /**
      */
     return (
-        <PageWrapper hdrText={params.hdrText}
+        <PageWrapper hdrText={"Movie Watch List"}
                      navigation={ props.navigation }
-                     active={"genre"}
+                     active={"home"}
                      showHdr={ true }
                      showFtr={ true }
 
         >
-            <GenreHome navigation={ props.navigation } {...props}/>
+            <WatchList navigation={ props.navigation } {...props}/>
+
         </PageWrapper>
     )
-}   // ScreenGenre
+}   // ScreenWatchList
 
 /**
  */
 const Stack = createStackNavigator();
+
 /**
  */
-const StackGenre = (props) =>
+const StackWatchList = () =>
 {
     return (
-        <Stack.Navigator initialRouteName="GenreHome" headerMode="none">
-            <Stack.Screen name='GenreHome'
-                          component={ScreenGenre}
+        <Stack.Navigator initialRouteName="WatchList" headerMode="none">
+            <Stack.Screen name='WatchList'
+                          component={ScreenWatchList}
+
             />
         </Stack.Navigator>
     )
@@ -45,6 +47,6 @@ const StackGenre = (props) =>
 
 /**
  */
-export default StackGenre
+export default StackWatchList
 
 

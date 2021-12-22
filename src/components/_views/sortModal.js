@@ -75,7 +75,7 @@ const SortModal = (props) => {
                 >
                     <View style={{flex: 1}}>
                         <TouchableWithoutFeedback onPress={() => IsModal(false)}>
-                            <View style={{flex: 1, backgroundColor: 'rgba(0,0,0,.5)'}}></View>
+                            <View style={{flex:1,backgroundColor: 'rgba(0,0,0,.5)'}}></View>
                         </TouchableWithoutFeedback>
 
                         <View style={ {

@@ -50,27 +50,28 @@ function MovieCard( props )
                     resizeMode="cover"
                 />
                 <View style={[styles.rating,styles.shadow]}>
-                    <Text style={{color: ui.text.light}}>{props.item.vote_average}</Text>
+                    <Text style={{color: '#50C77B'}}>{props.item.vote_average}</Text>
                 </View>
                 <View>
                     <TouchableOpacity style={[styles.fav,styles.shadow,{backgroundColor: watchStatus ? '#50C77B' : ui.color.primary_light }]}
                                       onPress={()=> WatchListUpd()  }
                     >
-                        <FA5Icon name={watchStatus? 'check':'plus'} size={20} color={!watchStatus ?'#50C77B': ui.text.dark}/>
+                        <Text>
+                            <FA5Icon name={watchStatus? 'check':'plus'} size={20} color={!watchStatus ?'#50C77B': ui.text.dark}/>
+                        </Text>
                     </TouchableOpacity>
                 </View>
 
-            </View>
-
-            <View style={{
-                justifyContent: 'center',
-                alignItems: 'center'}}>
-                <Text style={styles.itemText}
-                      numberOfLines={2}
-                      adjustsFontSizeToFit
-                >
-                    {props.item.title}
-                </Text>
+                <View style={{
+                    justifyContent: 'center'
+                }}>
+                    <Text style={styles.itemText}
+                          numberOfLines={2}
+                          adjustsFontSizeToFit
+                    >
+                        {props.item.title}
+                    </Text>
+                </View>
             </View>
 
 
@@ -123,8 +124,8 @@ const styles = StyleSheet.create({
     },
     fav:{
         position:'absolute',
-        right: -5,
-        bottom: -10,
+        left: 105,
+        bottom: 10,
         height: 30,
         width: 30,
         borderRadius: 20,
@@ -140,8 +141,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.35,
         shadowRadius: 3.84,
-
-        elevation: 5
+        elevation: 5,
     }
 });
 

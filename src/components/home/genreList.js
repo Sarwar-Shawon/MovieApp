@@ -49,6 +49,7 @@ function GenreList(props )
     /**
      */
     const ListItem = ({ item }) => {
+        console.log('ListItem')
         return (
             <MovieCard item={item}/>
         );
@@ -66,13 +67,10 @@ function GenreList(props )
                 </TouchableOpacity>
 
                 <TouchableOpacity stlye={{flex:1}}
-                                  onPress={() => props.navigation.navigate('AppGenre',{
-                                      screen: 'GenreHome',
-                                      params: {
+                                  onPress={() => props.navigation.navigate('Genre',{
                                           hdrText: props.item.name ,
                                           item:props.item
-                                      },
-                                  })}
+                                      })}
                 >
                     <View style={{flexDirection: 'row'}}>
                         <Text style={[styles.sectionHeader,{fontSize:14,color: ui.color.primary_pest}]}>{"Show Top 10"}</Text>
@@ -93,10 +91,13 @@ function GenreList(props )
                 }
                 <FlatList
                     horizontal
+                    keyExtractor={(item) => item.id}
                     data={movieList}
                     renderItem={({ item }) => <ListItem item={item} />}
                     showsHorizontalScrollIndicator={false}
-                    extraData={ts}
+                    extraData={movieList}
+                    initialNumToRender={5}
+
                 />
 
             </View>

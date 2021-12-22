@@ -30,6 +30,8 @@ function Home( props )
             .catch()
 
     },[])
+
+
     /**
      */
     const LoadMovieGenre = async () =>

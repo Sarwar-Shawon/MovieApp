@@ -17,7 +17,7 @@ export const RdxGenreList = () => {
         }
         catch( err )
         {
-            console.warn( 'actions/driverCom: RdxGenreList: err: ', err )
+            console.warn( 'actions/genre: RdxGenreList: err: ', err )
 
             return Promise.reject( err )
         }

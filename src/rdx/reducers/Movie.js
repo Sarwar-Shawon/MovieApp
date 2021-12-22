@@ -30,6 +30,7 @@ export default (state = {
                     state.watchList.splice(idx,1)
                 }
             }
+            console.log("state.watchList",state.watchList)
             return {...state, ts: Date.now()}
 
         default:
