@@ -24,7 +24,7 @@ const Header = (props) => {
 
         <View style={styles.container}>
             <View style={{flex:1,alignItems: 'center', justifyContent: 'center',}}>
-                <Text allowFontScaling={false} style={styles.title}>
+                <Text allowFontScaling={false} style={[styles.title,props.style]}>
                     {props.hdrText}
                 </Text>
             </View>
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         letterSpacing: 1,
         fontSize: 24,
         fontWeight: 'bold',
-        color: ui.text.light,
+        color: ui.color.primary_pest,
 
     },
     headerStyle: {

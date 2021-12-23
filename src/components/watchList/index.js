@@ -14,7 +14,7 @@ function ScreenWatchList( props )
     /**
      */
     return (
-        <PageWrapper hdrText={"Movie Watch List"}
+        <PageWrapper hdrText={"Watch List"}
                      navigation={ props.navigation }
                      active={"home"}
                      showHdr={ true }

@@ -36,6 +36,7 @@ function WatchList( props )
                            margin: 10,
                            padding: 10
                        }}
+                       navigation={props.navigation}
             />
         )
     }

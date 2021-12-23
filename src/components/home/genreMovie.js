@@ -59,8 +59,7 @@ function GenreMovie( props )
                            margin: 10,
                            padding: 10
                        }}
-
-
+                       navigation={props.navigation}
             />
         )
     }

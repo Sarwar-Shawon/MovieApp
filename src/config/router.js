@@ -32,8 +32,10 @@ const StackApp = () => {
                         component={StackHome}
                         options={{
                             headerShown: false,
-                            tabBarIcon: ({ color, size }) => (
-                                <FA5Icon name="home" size={24} color={'#87ceeb'}/>
+                            tabBarIcon: ({ focused }) => (
+                                <View>
+                                    <FA5Icon name="home" size={24} color={focused? ui.color.primary_pest: ui.text.light}/>
+                                </View>
 
                             ),
                         }}
@@ -42,9 +44,10 @@ const StackApp = () => {
                         component={StackWatchList}
                         options={{
                             headerShown: false,
-                            tabBarIcon: ({ color, size }) => (
-                                <FA5Icon name="heart" size={24} color={'#87ceeb'}/>
-
+                            tabBarIcon: ({ focused }) => (
+                                <View>
+                                    <FA5Icon name="heart" size={24} color={focused? ui.color.primary_pest: ui.text.light}/>
+                                </View>
                             ),
                         }}
             />

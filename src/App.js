@@ -27,8 +27,6 @@ class App extends React.PureComponent
 
     render()
     {
-        console.disableYellowBox = true;
-
         return (
             <Provider store={rdxStore}>
                 <PersistGate loading={<ActivityIndicator />} persistor={rdxPersistor}>

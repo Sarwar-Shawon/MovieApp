@@ -190,8 +190,7 @@ const SortModal = (props) => {
                                     />
 
                                 </View>
-                                <View style={{height:'20%',justifyContent: 'center',
-                                    alignItems:'center',}}>
+                                <View style={{height:'20%',justifyContent: 'center', alignItems:'center',}}>
                                     <TouchableOpacity
                                         style={styles.btn}
                                         onPress={OnFindPress}

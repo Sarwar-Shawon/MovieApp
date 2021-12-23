@@ -14,12 +14,9 @@ async function Get (p)
             method: 'GET',
             headers: myHeaders
         };
-        console.log('api:::',[api.url , p.type , '?api_key=' , api.apiKey, p.sort_by || ''].join(''))
-
+        // console.log('api:::',[api.url , p.type , '?api_key=' , api.apiKey, p.sort_by || ''].join(''))
         const response = await fetch( [api.url , p.type , '?api_key=' , api.apiKey, p.sort_by || ''].join(''), requestOptions)
-
         let resp = await response.json();
-
         return resp
     }
     catch (err)

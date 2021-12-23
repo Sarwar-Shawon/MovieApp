@@ -23,6 +23,7 @@ function GenreList(props )
     const ts = useSelector(state => state.__movie.ts)
     const [isLoading,setLoading] = useState(true)
     const [movieList,setMovieList] = useState([])
+
     /**
      */
     useEffect(()=>{
@@ -49,9 +50,10 @@ function GenreList(props )
     /**
      */
     const ListItem = ({ item }) => {
-        console.log('ListItem')
         return (
-            <MovieCard item={item}/>
+            <MovieCard item={item}
+                       navigation={props.navigation}
+            />
         );
     };
     /**

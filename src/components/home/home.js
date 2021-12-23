@@ -72,7 +72,7 @@ function Home( props )
                 data={genreList}
                 keyExtractor={(item) => item.id}
                 renderItem={RenderItem}
-                extraData={genreList}
+                // extraData={genreList}
             />
 
         </View>
