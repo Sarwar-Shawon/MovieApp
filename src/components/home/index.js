@@ -83,7 +83,10 @@ const Stack = createStackNavigator();
 const StackHome = () =>
 {
     return (
-        <Stack.Navigator initialRouteName="Home" headerMode="none">
+        <Stack.Navigator initialRouteName="Home"
+                         screenOptions={{
+                             headerShown: false
+                         }}>
             <Stack.Screen name='Home'
                           component={ScreenHome}
 

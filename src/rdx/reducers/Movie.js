@@ -4,6 +4,7 @@
 export default (state = {
     watchList: [],
     watchListObj: {},
+    visitHistory: [],
     ts: 0
 },action)=>{
 
@@ -31,6 +32,24 @@ export default (state = {
                 }
             }
             console.log("state.watchList",state.watchList)
+            return {...state, ts: Date.now()}
+
+        case 'movie:visit:history':
+            console.log("action.payload",action.payload)
+            console.log("state",state)
+            const idx = state.visitHistory.findIndex( x => x.id === action.payload.id )
+            console.log("idx", idx)
+            if(idx !== -1)
+            {
+                state.visitHistory[idx].dt_view = Date.now()
+            }
+            else
+            {
+                action.payload.dt_view = Date.now()
+                state.visitHistory.push(action.payload)
+            }
+            state.visitHistory.sort((a, b) => b.dt_view - a.dt_view)
+            console.log("state.visitHistory",state.visitHistory)
             return {...state, ts: Date.now()}
 
         default:

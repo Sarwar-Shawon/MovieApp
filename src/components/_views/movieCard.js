@@ -16,44 +16,68 @@ import WatchButton from './watchBtn'
  */
 function MovieCard( props )
 {
-    return (
-        <TouchableOpacity style={[styles.item, props.style]}
-                          onPress={()=> props.navigation.navigate('MovieDetails',{
-                              item: props.item
-                          })}
-        >
-            <View>
-                <Image
-                    source={{
-                        uri: props.item.poster_path ? [api.imgPath,props.item.poster_path].join('') : '',
-                    }}
-                    style={styles.itemPhoto}
-                    resizeMode="cover"
-                />
-                <View style={[styles.rating,styles.shadow]}>
-                    <Text style={{color: '#50C77B'}}>{props.item.vote_average}</Text>
-                </View>
-                <View>
-                    <WatchButton
-                        style={[styles.fav,styles.shadow]}
-                        item={props.item}
-                    />
-                </View>
 
+
+    return (
+        <View>
+            {
+                props.fromVisit &&
                 <View style={{
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    marginTop: 10
                 }}>
-                    <Text style={styles.itemText}
-                          numberOfLines={2}
-                          adjustsFontSizeToFit
+                    <Text
+                        numberOfLines={2}
+                        style={{
+                            color: ui.text.light,
+                            textAlign:'center',
+                            fontWeight: 'bold'
+                        }}
+                        adjustsFontSizeToFit
                     >
-                        {props.item.title}
+                        {props.dt}
                     </Text>
                 </View>
-            </View>
+            }
+            <TouchableOpacity style={[styles.item, props.style]}
+                              onPress={()=> props.navigation.navigate('MovieDetails',{
+                                  item: props.item
+                              })}
+            >
+                <View>
+                    <Image
+                        source={{
+                            uri: props.item.poster_path ? [api.imgPath,props.item.poster_path].join('') : '',
+                        }}
+                        style={styles.itemPhoto}
+                        resizeMode="cover"
+                    />
+                    <View style={[styles.rating,styles.shadow]}>
+                        <Text style={{color: '#50C77B'}}>{props.item.vote_average}</Text>
+                    </View>
+                    <View>
+                        <WatchButton
+                            style={[styles.fav,styles.shadow]}
+                            item={props.item}
+                        />
+                    </View>
+
+                    <View style={{
+                        justifyContent: 'center'
+                    }}>
+                        <Text style={styles.itemText}
+                              numberOfLines={2}
+                              adjustsFontSizeToFit
+                        >
+                            {props.item.title}
+                        </Text>
+                    </View>
+                </View>
 
 
-        </TouchableOpacity>
+            </TouchableOpacity>
+        </View>
+
     )
 }   // MovieCard
 

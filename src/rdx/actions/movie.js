@@ -160,6 +160,27 @@ export const RdxGetSimilarMovies = (p) => {
         }
     }
 }   // RdxGetSimilarMovies
+
+
+/**
+ */
+export const RdxMovieVistHistory = (p) => {
+
+    return async (d, gs) =>
+    {
+        try
+        {
+           d(VisitHistory(p))
+        }
+        catch( err )
+        {
+            console.warn( 'actions/movie: RdxMovieVistHistory: err: ', err )
+
+            return Promise.reject( err )
+        }
+    }
+}   // RdxMovieVistHistory
+
 /**
  */
 export const Add = ( movie ) =>
@@ -178,3 +199,12 @@ export const Remove = ( movie ) =>
         payload: movie,
     }
 }   // Remove
+/**
+ */
+export const VisitHistory = ( movie ) =>
+{
+    return {
+        type: 'movie:visit:history',
+        payload: movie,
+    }
+}   // VisitHistory
