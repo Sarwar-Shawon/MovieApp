@@ -36,7 +36,11 @@ const Stack = createStackNavigator();
 const StackVisitList = () =>
 {
     return (
-        <Stack.Navigator initialRouteName="VisitList" headerMode="none">
+        <Stack.Navigator initialRouteName="VisitList"
+                         screenOptions={{
+                             headerShown: false
+                         }}
+        >
             <Stack.Screen name='VisitList'
                           component={ScreenVisitList}
             />

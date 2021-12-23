@@ -37,7 +37,7 @@ function GenreList(props )
         try
         {
             const resp = await dispatch(RdxMovieListByGenre({id:props.item.id}))
-            console.log("movieList",resp)
+            // console.log("movieList",resp)
             setMovieList(resp )
             setLoading(false)
         }

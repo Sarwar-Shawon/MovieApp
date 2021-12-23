@@ -36,7 +36,11 @@ const Stack = createStackNavigator();
 const StackWatchList = () =>
 {
     return (
-        <Stack.Navigator initialRouteName="WatchList" headerMode="none">
+        <Stack.Navigator initialRouteName="WatchList"
+                         screenOptions={{
+                             headerShown: false
+                         }}
+        >
             <Stack.Screen name='WatchList'
                           component={ScreenWatchList}
 

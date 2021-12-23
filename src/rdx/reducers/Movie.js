@@ -31,12 +31,9 @@ export default (state = {
                     state.watchList.splice(idx,1)
                 }
             }
-            console.log("state.watchList",state.watchList)
             return {...state, ts: Date.now()}
 
         case 'movie:visit:history':
-            console.log("action.payload",action.payload)
-            console.log("state",state)
             const idx = state.visitHistory.findIndex( x => x.id === action.payload.id )
             console.log("idx", idx)
             if(idx !== -1)
