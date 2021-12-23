@@ -69,17 +69,17 @@ function MovieDetails( props )
             const arr_pr = [
                 await dispatch(RdxGetMovie({ id: params.item.id })),
                 await dispatch(RdxGetMovieCredits({ id: params.item.id })),
-                await dispatch(RdxGetMovieVideos({ id: params.item.id })),
-                await dispatch(RdxGetSimilarMovies({ id: params.item.id })),
+                await dispatch(RdxGetMovieVideos({ id: params.item.id }))
             ];
             const arr_resp = await Promise.all(arr_pr);
             console.log('data',arr_resp)
             setMovie(arr_resp[0])
             setCredits(arr_resp[1])
             setVideos(arr_resp[2])
-            setSimilarMovies(arr_resp[3])
-
             setIsLoading(false)
+            const data = await dispatch(RdxGetSimilarMovies({ id: params.item.id }))
+            setSimilarMovies(data)
+
 
         }
         catch (err)

@@ -46,9 +46,9 @@ function MovieCard( props )
             >
                 <View>
                     <Image
-                        source={{
-                            uri: props.item.poster_path ? [api.imgPath,props.item.poster_path].join('') : '',
-                        }}
+                        source={
+                            props.item.poster_path ? {uri: [api.imgPath,props.item.poster_path].join('')} : require('../assets/img/dummyMovie.png')
+                        }
                         style={styles.itemPhoto}
                         resizeMode="cover"
                     />

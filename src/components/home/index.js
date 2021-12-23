@@ -40,7 +40,7 @@ function ScreenGenreMovie( props )
                      active={"home"}
                      showHdr={ true }
                      showFtr={ true }
-
+                     showBack={ true }
         >
             <GenreMovie navigation={ props.navigation } {...props}/>
 
@@ -51,14 +51,10 @@ function ScreenGenreMovie( props )
  */
 function ScreenMovieDetails( props )
 {
-    const {params} = props.route
-
-    console.log("params",params)
-
     /**
      */
     return (
-        <PageWrapper hdrText={params.item ? params.item.title : ''}
+        <PageWrapper hdrText={'Details'}
                      navigation={ props.navigation }
                      active={"home"}
                      showHdr={ true }

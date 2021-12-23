@@ -14,19 +14,31 @@ import {
 
 } from 'react-native'
 import ui from '../../_cfg/ui'
-
-import MIcon from 'react-native-vector-icons/MaterialIcons';
-
+import FA5Icon from "react-native-vector-icons/FontAwesome5"
 
 const Header = (props) => {
 
     return (
 
         <View style={styles.container}>
-            <View style={{flex:1,alignItems: 'center', justifyContent: 'center',}}>
-                <Text allowFontScaling={false} style={[styles.title,props.style]}>
-                    {props.hdrText}
-                </Text>
+            <View style={{flex:1,flexDirection: 'row',alignItems: 'center', justifyContent: 'center'}}>
+                {
+                    props.showBack &&
+                    <TouchableOpacity style={{position: 'absolute', left: 10}}
+                                      onPress={() => {
+                                          return props.navigation.navigate( 'Home' )
+                                      }}
+                    >
+                        <FA5Icon name="arrow-left" size={24} color={ui.color.primary_pest} />
+                    </TouchableOpacity>
+                }
+
+                <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                    <Text allowFontScaling={false} style={[styles.title,props.style]}>
+                        {props.hdrText}
+                    </Text>
+                </View>
+
             </View>
         </View>
     )

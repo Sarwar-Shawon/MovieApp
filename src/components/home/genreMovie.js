@@ -37,7 +37,7 @@ function GenreMovie( props )
         try {
             setLoading(true)
             const resp = await dispatch(RdxMovieListSort(p))
-            console.log("genre/home: LoadTopMovies: topMovieList: resp: ",resp)
+            // console.log("genre/home: LoadTopMovies: topMovieList: resp: ",resp)
             setMovieList(resp)
             setLoading(false)
         }
