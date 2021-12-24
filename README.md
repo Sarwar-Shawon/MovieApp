@@ -11,7 +11,7 @@ In the root directory
 In the `ios` directory
 
 * Install Pods: `pod install`
-* Launch: `open WordDictionary.xcworkspace` 
+* Launch: `open MovieApp.xcworkspace` 
 * Select an emulator from xcode and press run
 * Or you can run the app by using these commands `react-native run-ios / npm start / npx react-native run-ios` from the project directory
 
