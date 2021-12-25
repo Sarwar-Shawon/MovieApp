@@ -20,7 +20,7 @@ function SearchHome( props )
 {
     const dispatch = useDispatch()
     const [isLoading,setLoading] = useState(false)
-    const [searchText,setSearchText] = useState(false)
+    const [searchText,setSearchText] = useState('')
     const [txtBoxActive,setTxtBoxActive] = useState(false)
     const [searchList,setSearchList] = useState([])
 
@@ -73,6 +73,7 @@ function SearchHome( props )
                            alignItems: 'center'
                        }}
                        navigation={props.navigation}
+                       navigateTo={'Search'}
             />
         )
     }

@@ -15,7 +15,6 @@ import ui from "../_cfg/ui";
 import {View} from "react-native";
 /**
  */
-const Stack = createStackNavigator();
 
 const Tab = createBottomTabNavigator();
 

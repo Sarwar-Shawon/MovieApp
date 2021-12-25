@@ -60,6 +60,7 @@ function GenreMovie( props )
                            padding: 10
                        }}
                        navigation={props.navigation}
+                       navigateTo={'Home'}
             />
         )
     }

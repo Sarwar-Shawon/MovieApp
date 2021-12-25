@@ -44,42 +44,6 @@ export const RdxMovieListSort = (p) => {
 }   // RdxMovieListSort
 /**
  */
-export const RdxAddToWatchList = (p) => {
-
-    return async (d, gs) =>
-    {
-        try
-        {
-          d(Add(p))
-        }
-        catch( err )
-        {
-            console.warn( 'actions/movie: RdxAddToWatchList: err: ', err )
-
-            return Promise.reject( err )
-        }
-    }
-}   // RdxAddToWatchList
-/**
- */
-export const RdxRemoveFromWatchList = (p) => {
-
-    return async (d, gs) =>
-    {
-        try
-        {
-          d(Remove(p))
-        }
-        catch( err )
-        {
-            console.warn( 'actions/movie: RdxRemoveFromWatchList: err: ', err )
-
-            return Promise.reject( err )
-        }
-    }
-}   // RdxRemoveFromWatchList
-/**
- */
 export const RdxGetMovie = (p) => {
 
     return async (d, gs) =>
@@ -200,6 +164,42 @@ export const RdxMovieVistHistory = (p) => {
     }
 }   // RdxMovieVistHistory
 
+/**
+ */
+export const RdxAddToWatchList = (p) => {
+
+    return async (d, gs) =>
+    {
+        try
+        {
+            d(Add(p))
+        }
+        catch( err )
+        {
+            console.warn( 'actions/movie: RdxAddToWatchList: err: ', err )
+
+            return Promise.reject( err )
+        }
+    }
+}   // RdxAddToWatchList
+/**
+ */
+export const RdxRemoveFromWatchList = (p) => {
+
+    return async (d, gs) =>
+    {
+        try
+        {
+            d(Remove(p))
+        }
+        catch( err )
+        {
+            console.warn( 'actions/movie: RdxRemoveFromWatchList: err: ', err )
+
+            return Promise.reject( err )
+        }
+    }
+}   // RdxRemoveFromWatchList
 /**
  */
 export const Add = ( movie ) =>

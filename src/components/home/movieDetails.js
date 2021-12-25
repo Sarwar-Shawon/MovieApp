@@ -194,7 +194,7 @@ function MovieDetails( props )
                                             style={[styles.genre,styles.shadow]}
                                             key={x.id}
                                         >
-                                            <Text style={{fontSize: 14,color:ui.text.light}}
+                                            <Text style={{fontSize: 11,padding:1,color:ui.text.light}}
                                                   adjustsFontSizeToFit
                                             >
                                                 {x.name}

@@ -26,7 +26,8 @@ const Header = (props) => {
                     props.showBack &&
                     <TouchableOpacity style={{position: 'absolute', left: 10}}
                                       onPress={() => {
-                                          return props.navigation.navigate( 'Home' )
+                                          props.navigation.goBack(null)
+                                          return props.navigation.navigate( props.navigateTo || 'Home' )
                                       }}
                     >
                         <FA5Icon name="arrow-left" size={24} color={ui.color.primary_pest} />

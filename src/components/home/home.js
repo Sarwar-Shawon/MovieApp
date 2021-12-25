@@ -72,6 +72,9 @@ function Home( props )
                 data={genreList}
                 keyExtractor={(item) => item.id}
                 renderItem={RenderItem}
+                initialNumToRender={2}
+                maxToRenderPerBatch={1}
+
                 // extraData={genreList}
             />
 

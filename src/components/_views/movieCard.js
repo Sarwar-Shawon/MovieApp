@@ -41,7 +41,8 @@ function MovieCard( props )
             }
             <TouchableOpacity style={[styles.item, props.style]}
                               onPress={()=> props.navigation.navigate('MovieDetails',{
-                                  item: props.item
+                                  item: props.item,
+                                  navigateTo: props.navigateTo
                               })}
             >
                 <View>

@@ -2,7 +2,7 @@
  * @copyright Sarwar Hoshen
  */
 
-import React,{useState,useEffect,useRef} from 'react';
+import React,{useState,useEffect,useRef,useCallback} from 'react';
 
 import {
     View,Text,FlatList
@@ -27,8 +27,7 @@ function WatchList( props )
     },[])
     /**
      */
-    const RenderItem = ({item}) =>
-    {
+    const RenderItem = useCallback(({item}) => {
         return (
 
             <MovieCard item={item}
@@ -38,9 +37,11 @@ function WatchList( props )
                            padding: 10
                        }}
                        navigation={props.navigation}
+                       navigateTo={'AppWatchList'}
+                       fromWatchList={true}
             />
         )
-    }
+    },[])
 
     // console.log("props.__movie.watchList",props.__movie.watchList)
     /**

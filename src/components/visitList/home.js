@@ -13,6 +13,7 @@ import * as actions from '../../rdx/actions'
 import {PlaceholderLoader} from '../_common/loader'
 import MovieCard from '../_views/movieCard'
 import PlaceHolderText from "../_views/placeHolder";
+import PageWrapper from "../_common/pagewrapper";
 
 /**
  */
@@ -42,6 +43,7 @@ function VisitList( props )
                        fromVisit={true}
                        dt={ConvertDate(item)}
                        navigation={props.navigation}
+                       navigateTo={'VisitList'}
             />
         )
     }

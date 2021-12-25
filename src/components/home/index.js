@@ -47,11 +47,13 @@ function ScreenGenreMovie( props )
  */
 function ScreenMovieDetails( props )
 {
+    console.log("props.params", props.route.params)
     /**
      */
     return (
         <PageWrapper hdrText={'Details'}
                      navigation={ props.navigation }
+                     navigateTo={props.route.params.navigateTo}
                      showHdr={ true }
                      showBack={ true }
                      style={{
