@@ -40,7 +40,7 @@ function SearchHome( props )
                 setLoading(true)
                 setTxtBoxActive(false)
                 const sData = await dispatch(RdxSearchMovie({val: searchText}))
-                console.log("sData",sData)
+                // console.log("sData",sData)
                 setSearchList(sData)
                 setLoading(false)
             }
@@ -76,7 +76,6 @@ function SearchHome( props )
             />
         )
     }
-    console.log("txtBoxActive",txtBoxActive)
     /**
      */
     return (
@@ -132,7 +131,7 @@ function SearchHome( props )
                     />
                 </View>
                 :
-                !txtBoxActive && searchList.length === 0 ?
+                !txtBoxActive && !searchList.length ?
                     <View style={{flex:1}}>
                         <PlaceHolderText title={'Oops! No Movies Found.'}
                                          emoji={'emoticon-sad-outline'}

@@ -12,6 +12,7 @@ import {connect} from 'react-redux'
 import * as actions from '../../rdx/actions'
 import {PlaceholderLoader} from '../_common/loader'
 import MovieCard from '../_views/movieCard'
+import PlaceHolderText from "../_views/placeHolder";
 
 /**
  */
@@ -46,6 +47,14 @@ function WatchList( props )
      */
     return (
         <View style={{flex:1}}>
+            {
+                !props.__movie.watchList.length &&
+                <View style={{flex: 1}}>
+                    <PlaceHolderText title={'No Watchlist Found.'}
+                                     emoji={'emoticon-sad-outline'}
+                    />
+                </View>
+            }
 
             {
                 isLoading &&

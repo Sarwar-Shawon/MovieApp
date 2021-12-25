@@ -12,6 +12,7 @@ import {connect} from 'react-redux'
 import * as actions from '../../rdx/actions'
 import {PlaceholderLoader} from '../_common/loader'
 import MovieCard from '../_views/movieCard'
+import PlaceHolderText from "../_views/placeHolder";
 
 /**
  */
@@ -62,7 +63,14 @@ function VisitList( props )
      */
     return (
         <View style={{flex:1}}>
-
+            {
+                !props.__movie.visitHistory.length &&
+                <View style={{flex: 1}}>
+                    <PlaceHolderText title={'No Visit History Found.'}
+                                     emoji={'emoticon-sad-outline'}
+                    />
+                </View>
+            }
             {
                 isLoading &&
                 <PlaceholderLoader style={{margin: 20, padding: 20}}/>
