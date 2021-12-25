@@ -10,6 +10,7 @@ import FA5Icon from "react-native-vector-icons/FontAwesome5"
 import StackHome from '../components/home'
 import StackWatchList from '../components/watchList'
 import StackVisitList from '../components/visitList'
+import StackSearch from '../components/search'
 import ui from "../_cfg/ui";
 import {View} from "react-native";
 /**
@@ -59,6 +60,17 @@ const StackApp = () => {
                             tabBarIcon: ({ focused }) => (
                                 <View>
                                     <FA5Icon name="history" size={24} color={focused? ui.color.primary_pest: ui.text.light}/>
+                                </View>
+                            ),
+                        }}
+            />
+            <Tab.Screen name="AppSearchMovie"
+                        component={StackSearch}
+                        options={{
+                            headerShown: false,
+                            tabBarIcon: ({ focused }) => (
+                                <View>
+                                    <FA5Icon name="search" size={24} color={focused? ui.color.primary_pest: ui.text.light}/>
                                 </View>
                             ),
                         }}

@@ -98,7 +98,7 @@ function GenreList(props )
                     renderItem={({ item }) => <ListItem item={item} />}
                     showsHorizontalScrollIndicator={false}
                     extraData={movieList}
-                    initialNumToRender={5}
+                    initialNumToRender={10}
 
                 />
 

@@ -18,9 +18,7 @@ function ScreenHome( props )
     return (
         <PageWrapper hdrText={"Movie App"}
                      navigation={ props.navigation }
-                     active={"home"}
                      showHdr={ true }
-                     showFtr={ true }
 
         >
             <Home navigation={ props.navigation } {...props}/>
@@ -37,9 +35,7 @@ function ScreenGenreMovie( props )
     return (
         <PageWrapper hdrText={"Movie App"}
                      navigation={ props.navigation }
-                     active={"home"}
                      showHdr={ true }
-                     showFtr={ true }
                      showBack={ true }
         >
             <GenreMovie navigation={ props.navigation } {...props}/>
@@ -56,7 +52,6 @@ function ScreenMovieDetails( props )
     return (
         <PageWrapper hdrText={'Details'}
                      navigation={ props.navigation }
-                     active={"home"}
                      showHdr={ true }
                      showBack={ true }
                      style={{

@@ -160,6 +160,25 @@ export const RdxGetSimilarMovies = (p) => {
         }
     }
 }   // RdxGetSimilarMovies
+/**
+ */
+export const RdxSearchMovie = (p) => {
+
+    return async (d, gs) =>
+    {
+        try
+        {
+            const data = await Get({type: `search/movie`,sort_by: `&query=${p.val}` })
+            return data.results ? data.results : []
+        }
+        catch( err )
+        {
+            console.warn( 'actions/movie: RdxSearchMovie: err: ', err )
+
+            return Promise.reject( err )
+        }
+    }
+}   // RdxSearchMovie
 
 
 /**

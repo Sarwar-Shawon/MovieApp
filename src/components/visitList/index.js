@@ -16,9 +16,7 @@ function ScreenVisitList( props )
     return (
         <PageWrapper hdrText={"Recently Visited Movies"}
                      navigation={ props.navigation }
-                     active={"home"}
                      showHdr={ true }
-                     showFtr={ true }
 
         >
             <VisitList navigation={ props.navigation } {...props}/>

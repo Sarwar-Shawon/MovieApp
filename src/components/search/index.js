@@ -4,26 +4,26 @@
 
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack'
-import WatchList from './home'
+import SearchHome from './search'
 import PageWrapper from "../_common/pagewrapper";
 
 /**
  */
-function ScreenWatchList( props )
+function ScreenSearch( props )
 {
     /**
      */
     return (
-        <PageWrapper hdrText={"Watch List"}
+        <PageWrapper hdrText={"Search"}
                      navigation={ props.navigation }
                      showHdr={ true }
 
         >
-            <WatchList navigation={ props.navigation } {...props}/>
+            <SearchHome navigation={ props.navigation } {...props}/>
 
         </PageWrapper>
     )
-}   // ScreenWatchList
+}   // ScreenSearch
 
 /**
  */
@@ -31,16 +31,16 @@ const Stack = createStackNavigator();
 
 /**
  */
-const StackWatchList = () =>
+const StackSearch = () =>
 {
     return (
-        <Stack.Navigator initialRouteName="WatchList"
+        <Stack.Navigator initialRouteName="Search"
                          screenOptions={{
                              headerShown: false
                          }}
         >
-            <Stack.Screen name='WatchList'
-                          component={ScreenWatchList}
+            <Stack.Screen name='Search'
+                          component={ScreenSearch}
 
             />
         </Stack.Navigator>
@@ -49,6 +49,6 @@ const StackWatchList = () =>
 
 /**
  */
-export default StackWatchList
+export default StackSearch
 
 
