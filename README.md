@@ -15,6 +15,8 @@ In the `ios` directory
 * Select an emulator from xcode and press run
 * Or you can run the app by using these commands `react-native run-ios / npm start / npx react-native run-ios` from the project directory
 
+### ios app [Video](https://drive.google.com/file/d/1O57MmWrk3owVfzahNq5_CdzOHP_pcDeg/view?usp=sharing)
+
 ### Android
 
 * You might need to do this to run it in Android Studio or on real device: `adb reverse tcp:8081 tcp:8081`
@@ -27,4 +29,19 @@ To download the APK, click [here](https://drive.google.com/file/d/1EXr2CI-Is5VVY
 
 
 # App Screenshot
+
+![1](https://user-images.githubusercontent.com/16131704/147401429-fc3b9d85-89ea-4259-97fb-b816690f0d6d.png)
+![details1](https://user-images.githubusercontent.com/16131704/147401428-aa44d407-312d-4376-a969-12defd99634b.png)
+![details2](https://user-images.githubusercontent.com/16131704/147401427-957291de-3b34-4488-84f7-e5da58ab7ef5.png)
+![top10](https://user-images.githubusercontent.com/16131704/147401426-4a0d65d0-9005-4cc5-aab8-d122aced3c69.png)
+![sorting](https://user-images.githubusercontent.com/16131704/147401423-a76891d4-748f-4898-828a-a3a28b2dd47b.png)
+![watchList](https://user-images.githubusercontent.com/16131704/147401420-4ad78267-01f0-4687-8096-9c3946d6e197.png)
+![visitList](https://user-images.githubusercontent.com/16131704/147401418-a0dacca4-76a3-4ec7-bf5a-8f4d9b018383.png)
+![search](https://user-images.githubusercontent.com/16131704/147401417-b5019820-f53c-469b-a19b-cc71e0499038.png)
+
+
+
+
+
+
 
