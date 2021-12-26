@@ -38,7 +38,7 @@ function WatchList( props )
                        }}
                        navigation={props.navigation}
                        navigateTo={'AppWatchList'}
-                       fromWatchList={true}
+
             />
         )
     },[])

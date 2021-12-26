@@ -12,7 +12,7 @@ import api from '../../_cfg/api'
 import ui from '../../_cfg/ui'
 import FA5Icon from "react-native-vector-icons/FontAwesome5"
 import {useDispatch, useSelector} from "react-redux";
-import {RdxGetMovie,RdxGetMovieCredits,RdxGetMovieVideos,RdxGetSimilarMovies,RdxMovieVistHistory} from "../../rdx/actions";
+import {RdxGetMovie,RdxGetMovieCredits,RdxGetMovieVideos,RdxGetSimilarMovies,RdxMovieVisitHistory} from "../../rdx/actions";
 import {PlaceholderLoader} from "../_common/loader";
 import YoutubePlayer from "react-native-youtube-iframe";
 import WatchButton from "../_views/watchBtn";
@@ -52,8 +52,7 @@ function MovieDetails( props )
     {
         try
         {
-
-            await dispatch(RdxMovieVistHistory(params.item))
+            await dispatch(RdxMovieVisitHistory(params.item))
         }
         catch (err) {
             return {err}

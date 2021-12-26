@@ -34,8 +34,10 @@ export default (state = {
             return {...state, ts: Date.now()}
 
         case 'movie:visit:history':
+            console.log("action.payload",action.payload)
+            console.log("state.visitHistory",state.visitHistory)
+
             const idx = state.visitHistory.findIndex( x => x.id === action.payload.id )
-            console.log("idx", idx)
             if(idx !== -1)
             {
                 state.visitHistory[idx].dt_view = Date.now()

@@ -147,7 +147,7 @@ export const RdxSearchMovie = (p) => {
 
 /**
  */
-export const RdxMovieVistHistory = (p) => {
+export const RdxMovieVisitHistory = (p) => {
 
     return async (d, gs) =>
     {
@@ -157,12 +157,12 @@ export const RdxMovieVistHistory = (p) => {
         }
         catch( err )
         {
-            console.warn( 'actions/movie: RdxMovieVistHistory: err: ', err )
+            console.warn( 'actions/movie: RdxMovieVisitHistory: err: ', err )
 
             return Promise.reject( err )
         }
     }
-}   // RdxMovieVistHistory
+}   // RdxMovieVisitHistory
 
 /**
  */
