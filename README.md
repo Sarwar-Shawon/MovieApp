@@ -15,8 +15,6 @@ In the `ios` directory
 * Select an emulator from xcode and press run
 * Or you can run the app by using these commands `react-native run-ios / npm start / npx react-native run-ios` from the project directory
 
-### ios app [Video](https://drive.google.com/file/d/1klav9w2_-zYEORwD3xHbup0xePorPRdA/view?usp=sharing)
-
 ### Android
 
 * You might need to do this to run it in Android Studio or on real device: `adb reverse tcp:8081 tcp:8081`
@@ -25,7 +23,7 @@ In the `ios` directory
 
 ### APK
 
-To download the APK, click [here]()
+To download the APK, click [here](https://drive.google.com/file/d/1EXr2CI-Is5VVYV3XpbS3xkJ5L92mk4bj/view?usp=sharing)
 
 
 # App Screenshot
