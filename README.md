@@ -6,7 +6,7 @@ A mobile application built using React Native and [TMDb API](https://developers.
 
 In the root directory
 * Install dependencies: `yarn install` or `npm install`
-
+* 
 ### iOS
 In the `ios` directory
 
